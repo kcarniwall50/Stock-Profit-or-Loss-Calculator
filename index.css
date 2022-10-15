@@ -13,6 +13,11 @@ h3{
   padding:0.4rem
 }
 
+#message{
+  color:rgb(77, 36, 212);
+}
+
+
 table{
   margin:auto
 }
