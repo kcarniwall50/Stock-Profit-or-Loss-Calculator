@@ -28,9 +28,9 @@ let calc=document.querySelector("#calc")
 
 calc.addEventListener("click",function  calculate(){
 
-if(initialprice<0 || currentprice<0 || stockamount )
+if(initialprice<0 || currentprice<0 || stockamount<0 )
 {
-  alert("Please fill all enter valid values")
+  alert("Please enter valid values")
   return
 }
 
