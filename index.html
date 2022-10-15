@@ -4,43 +4,62 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
-  <link rel="stylesheet" href="index.css"/>
+  <title>Cash Register</title>
+  <link rel="stylesheet" href="index.css">
 
   <style>
     table, th, td {
-      border:1px solid rgba(52, 127, 194, 0.732);
+      border:1px solid black;
     }
     </style>
 </head>
 <body>
+  <div>
+  <h1>Cash  Register Handler</h1>
+  <h3>Enter the bill amount and cash given by the customer and know minimum number of notes to be returned.</h3>
+  <label for="bill">Bill Amount:</label>
+  <input type="number" id="bill" placeholder="enter bill amount" >
+<br> <br>
+  <label for="cash">Cash Given: </label>
+  <input type="number" id="cash" placeholder="enter cash amount">
+  <br><br>
+  <button type="button">Check</button>
+  <br><br>
+
+  <h2>Return Change</h2>
+
+<div><h3 id="message"></h3></div>
+
+  <table id="table">
+    <tr>
+      <th>No. of Notes</th>
+      <td class="reset" id="twoTh"></td>
+      <td class="reset" id="fiveH"></td>
+      <td class="reset" id="oneh"></td>
+      <td class="reset" id="twenty"></td>
+      <td class="reset" id="ten"></td>
+      <td class="reset" id="five"></td>
+      <td class="reset" id="one"></td>
+    </tr>
+    
+    <tr>
+      <th> Notes</th>
+      <td>2000</td>
+      <td>500</td>
+      <td>100</td>
+      <td>20</td>
+      <td>10</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+  </table>
+</div>
+
+<!-- <script>
+  document.querySelector("#fiveH").innerHTML="Hello 500"
+</script> -->
+
+<script src="index.js"></script>
   
-<h1>Profit and Loss Calculator</h1>
-<br>
-
-<div class="res" id="res"></div>
-
-<h3> Enter required Stock Parameters</h3>
-<br>
-
-<table>
-  <tr>
-    <th>Initial Price</th>
-    <th>Current Price</th>
-    <th>Amount of Stock</th>
-  </tr>
-
-  <tr>
-    <td><input class="input" id="initial"type="number"></td>
-    <td><input class="input" type="number" id="current"></td>
-    <td><input class="input" type="number" id="amount"></td>
-  </tr>
-</table>
-<br>
-
-<input type="button" value="Calculate" id="calc">
-
-
-  <script src="index.js"></script>
 </body>
 </html>
