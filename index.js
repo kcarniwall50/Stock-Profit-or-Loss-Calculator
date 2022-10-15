@@ -1,57 +1,162 @@
+// test
+//document.querySelector("#fiveH").innerHTML="Hello 500"
 
-// variable
+let billInput=document.querySelector("#bill")
+let cashInput=document.querySelector("#cash")
 
-let initial = document.querySelector("#initial")
-let current = document.querySelector("#current")
-let amount = document.querySelector("#amount")
+let billvalue= -1
+let cashvalue= -1
 
-// 
-let initialprice=-1
-let currentprice=-1
-let stockamount=-1
-
-initial.addEventListener("input", function price(){
-  initialprice=initial.value
+billInput.addEventListener('input',function bill(){
+  billvalue=billInput.value
+  billvalue=Number(billvalue)
 })
 
-current.addEventListener("input", function curprice(){
-  currentprice=current.value
+cashInput.addEventListener('input',function cash(){
+  cashvalue=cashInput.value
+  cashvalue=Number(cashvalue)
 })
 
-amount.addEventListener("input", function amountno(){
-  stockamount=amountno.value
-})
+// check
 
-let calc=document.querySelector("#calc")
+let check=document.querySelector("button")
 
-// calculate
+check.addEventListener("click", function change(){
 
-calc.addEventListener("click",function  calculate(){
+// document.querySelector("#table").requestFullscreen()
 
-if(initialprice<0 || currentprice<0 || stockamount<0 )
+// reset
+// document.getElementsByClassName(".reset").innerHTML=0
+
+
+
+document.querySelector("#twoTh").innerHTML=0
+document.querySelector("#fiveH").innerHTML=0
+document.querySelector("#oneh").innerHTML=0
+document.querySelector("#twenty").innerHTML=0
+document.querySelector("#one").innerHTML=0
+document.querySelector("#ten").innerHTML=0
+document.querySelector("#five").innerHTML=0
+
+//document.querySelectorAll(".reset").innerHTML=0
+
+
+// $(function(){
+//   $('#resetBtn').click(function(){
+//      $('#tableid').find('input[type=text]').each(function(){
+//     var defaultVal = $(this).data('default');
+//     $(this).val(defaultVal);
+//      });
+//   });
+// });
+
+//
+
+if(cashvalue<0 || billvalue<0 || cashvalue<billvalue)
 {
-  alert("Please enter valid values")
+  alert("Please enter positive and valid values")
   return
 }
 
-let diff=currentprice-initialprice
+// user message
 
-if(diff>0)
+document.querySelector("#message").textContent="Minimum number of notes in returnable amount"
+
+// logic part
+
+if(cashvalue >= billvalue)
 {
-  let profit=diff
-  let profitPercentage=(profit/initialprice)*100
+  let give= (Number(cashvalue)-Number(billvalue))
 
-  document.querySelector(".res").innerHTML="Profit is "+profit.toFixed(2)+" and profit percentage is "+profitPercentage.toFixed(2)+"%"
+  console.log("re "+give)
+
+  // let mod1=(((give % 2000) + 2000) % 2000)
+  // let mod2=(((give % 500) + 500) % 500)
+  // let mod3=(((give % 100) + 100) % 100)
+  // let mod4=(((give % 20) + 20) % 20)
+  // let mod5=(((give % 10) + 10) % 10)
+  // let mod6=(((give % 5) + 5) % 5)
+  // let mod7=(((give % 1) + 1) % 1)
+
+
+  
+// 2000 exchange  
+
+  let mod1=Math.trunc(give / 2000)
+
+  console.log("mod1 "+ mod1)
+
+  if(mod1 > 0)
+  {
+
+    console.log("modulo  " +(mod1))
+
+    document.querySelector("#twoTh").innerHTML= mod1
+
+    give=give - (2000*mod1)
+  }
+
+  // 500 
+
+  let mod2=Math.floor(give/500)
+
+  if(mod2 > 0)
+  {
+    document.querySelector("#fiveH").innerHTML=mod2
+    give= give- (500*mod2)
+  }
+
+
+  // 100
+  let mod3=Math.floor(give/100)
+
+  if((mod3) > 0)
+  {
+    document.querySelector("#oneH").innerHTML=mod3
+    give= give- (100*mod3)
+  }
+
+
+  // 20
+
+  let mod4=Math.floor(give/20)
+
+  if(mod4 > 0)
+  {
+    document.querySelector("#twenty").innerHTML=mod4
+    give= give- (20*mod4)
+  }
+
+  // 10
+
+  let mod5=Math.floor(give/10)
+
+  if(mod5 > 0)
+  {
+    document.querySelector("#ten").innerHTML=mod5
+    give= give- (10*mod5)
+  }
+
+  // 5
+
+  let mod6=Math.floor(give/5)
+
+  if(mod6 > 0)
+  {
+    document.querySelector("#five").innerHTML=mod6
+    give= give- (5*mod6)
+  }
+
+  // 1
+
+  let mod7=Math.floor(give/1)
+  if(mod7 > 0)
+  {
+    document.querySelector("#one").innerHTML=mod7
+   
+  }
 }
 
-else if(diff<0)
-{
-  let loss=-diff
-  let lossPercentage=(loss/initialprice)*100
+}
 
-  document.querySelector(".res").innerHTML="Loss is of "+loss+" and loss percentage is "+lossPercentage.toFixed(2)+"%"
-}
-else{
-  document.querySelector(".res").innerHTML="No Loss No Profit"
-}
-})
+)
